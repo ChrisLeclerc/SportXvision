@@ -1,0 +1,29 @@
+2025-11-04 15:20:34,051 [INFO ] Using GPU 1
+2025-11-04 15:20:34,051 [INFO ] Starting test...
+2025-11-04 15:20:34,051 [INFO ] ======================================================================
+2025-11-04 15:20:34,051 [INFO ] CALF Test - SoccerNet Test Set Evaluation (Pre-computed Features)
+2025-11-04 15:20:34,051 [INFO ] ======================================================================
+2025-11-04 15:20:34,051 [INFO ] Parameters:
+2025-11-04 15:20:34,051 [INFO ]   video_path           : /home/common-data/soccer-ds/Dataset
+2025-11-04 15:20:34,052 [INFO ]   features             : ResNET_TF2_PCA512.npy
+2025-11-04 15:20:34,052 [INFO ]   model_path           : /home/o_a38510/sn-spotting/Benchmarks/CALF
+2025-11-04 15:20:34,052 [INFO ]   model_name           : CALF
+2025-11-04 15:20:34,052 [INFO ]   load_weights         : None
+2025-11-04 15:20:34,052 [INFO ]   num_features         : 512
+2025-11-04 15:20:34,052 [INFO ]   dim_capsule          : 16
+2025-11-04 15:20:34,052 [INFO ]   framerate            : 2
+2025-11-04 15:20:34,052 [INFO ]   chunk_size           : 120
+2025-11-04 15:20:34,052 [INFO ]   receptive_field      : 40
+2025-11-04 15:20:34,052 [INFO ]   batch_size           : 1
+2025-11-04 15:20:34,052 [INFO ]   GPU                  : 1
+2025-11-04 15:20:34,052 [INFO ]   loglevel             : INFO
+2025-11-04 15:20:34,052 [INFO ] ======================================================================
+2025-11-04 15:20:34,052 [INFO ] Loading test dataset from: /home/common-data/soccer-ds/Dataset
+2025-11-04 15:20:34,070 [INFO ] Found 0 feature files
+2025-11-04 15:20:34,070 [INFO ] Loaded 0 test clips
+2025-11-04 15:20:34,070 [INFO ] Test set size: 0 clips
+2025-11-04 15:20:34,071 [INFO ] Creating CALF model...
+2025-11-04 15:20:34,429 [INFO ] Total parameters: 578,245
+2025-11-04 15:20:34,430 [INFO ] Loading model from: /home/o_a38510/sn-spotting/Benchmarks/CALF
+2025-11-04 15:20:34,430 [ERROR] Checkpoint not found: /home/o_a38510/sn-spotting/Benchmarks/CALF/CALF/model.pth.tar
+2025-11-04 15:20:34,430 [INFO ] Total execution time: 0.38s (0.01m)
