@@ -85,8 +85,8 @@ def main(args):
     model.load_state_dict(checkpoint['state_dict'])
 
     logging.info("starting inference...")
-    a_mAP, a_mAP_per_class, a_mAP_visible, a_mAP_per_class_visible, \
-    a_mAP_unshown, a_mAP_per_class_unshown = test(
+    _, _, a_mAP_visible, a_mAP_per_class_visible, \
+    _, _ = test(
         test_loader,
         model=model,
         model_name=args.model_name,
@@ -102,33 +102,19 @@ def main(args):
     print("\n" + "=" * 80)
     print("Results")
     print("=" * 80)
-    print(f"tight Avg-mAP:  {a_mAP * 100:.2f}%")
-    print(f"Avg-mAP:        {a_mAP_visible * 100:.2f}%")
-    print()
-    print(f"visible tight:  {a_mAP * 100:.2f}%")
-    print(f"visible loose:  {a_mAP_visible * 100:.2f}%")
-    print()
-    print(f"unshown:        {a_mAP_unshown * 100:.2f}%")
+    print(f"Avg-mAP (visible): {a_mAP_visible * 100:.2f}%")
     print("=" * 80)
 
     print("\nCALF reported results:")
-    print("  tight:  14.10%")
     print("  loose:  41.61%")
     print("=" * 80)
 
     results_text = f"""CALF Test Results
 ================================================================================
 
-tight Avg-mAP:  {a_mAP * 100:.2f}%
-Avg-mAP:        {a_mAP_visible * 100:.2f}%
-
-visible tight:  {a_mAP * 100:.2f}%
-visible loose:  {a_mAP_visible * 100:.2f}%
-
-unshown:        {a_mAP_unshown * 100:.2f}%
+Avg-mAP (visible): {a_mAP_visible * 100:.2f}%
 
 CALF reported results:
-  tight:  14.10%
   loose:  41.61%
 ================================================================================
 """
@@ -139,12 +125,8 @@ CALF reported results:
     logging.info("done, predictions saved to /home/o_a38510/sn-spotting/CALF_outputs/")
 
     return {
-        'a_mAP': a_mAP,
-        'a_mAP_per_class': a_mAP_per_class,
         'a_mAP_visible': a_mAP_visible,
         'a_mAP_per_class_visible': a_mAP_per_class_visible,
-        'a_mAP_unshown': a_mAP_unshown,
-        'a_mAP_per_class_unshown': a_mAP_per_class_unshown,
     }
 
 
