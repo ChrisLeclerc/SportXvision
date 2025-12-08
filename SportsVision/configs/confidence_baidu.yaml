@@ -1,0 +1,65 @@
+data:
+  data_root: /home/o_a38510/ML/SportsVision/data
+  feature_name: baidu_2.0
+  splits_file: splits_baidu_2.0.csv
+  frame_rate: 2.0
+  feature_dim: 8576
+  chunk_duration: 112.0
+  chunk_stride: 56.0
+  num_workers: 8
+  prefetch_factor: 4
+  pin_memory: true
+
+model:
+  width: 16
+  unet_start_layer: 0
+  unet_end_layer: 6
+  unet_max_filters: 2048
+  unet_blocks_per_stage: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+  unet_downsample: pooling_max
+  unet_combiner: addition
+  unet_upsampler: transpose
+  use_bottleneck: true
+  use_resnet_v2: true
+  head_layers: 1
+  dropout: 0.0
+  batch_norm: false
+
+loss:
+  dense_detection_radius: 3.0
+  delta_radius_multiplier: 2.0
+  positive_weight_confidence: 0.03
+  positive_weight_delta: 1.0
+  focal_gamma: 0.0
+  huber_delta: 0.5
+  confidence_weight: 1.0
+  delta_weight: 0.0
+
+training:
+  batch_size: 32
+  epochs: 1000
+  learning_rate: 0.0002
+  weight_decay: 0.0002
+  lr_scheduler: linear
+  warmup_epochs: 0
+  gradient_clip: 0.0
+  mixup_alpha: 2.0
+  use_amp: true
+  save_every: 10
+  val_every: 5
+
+eval:
+  nms_window: 20.0
+  nms_type: suppress
+  confidence_threshold: 0.5
+  chunk_border_discard: 20.0
+
+wandb:
+  project: sportsXvision
+  entity: null
+  name: baidu_confidence_lr2e-4_wd2e-4_mixup2.0
+  tags: [baidu_2.0, confidence, baseline]
+  notes: "Baseline confidence model with Baidu 2.0 features"
+
+seed: 42
+device: cuda

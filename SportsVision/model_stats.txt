@@ -1,0 +1,11 @@
+Model Parameter Statistics
+==================================================
+
+Total parameters: 80,127,585
+Trainable parameters: 80,127,585
+Model size: 305.66 MB
+
+Parameter breakdown:
+  feature_reduction: 549,968 (0.7%)
+  backbone: 79,376,384 (99.1%)
+  confidence_head: 201,233 (0.3%)

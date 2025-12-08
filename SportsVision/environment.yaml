@@ -1,0 +1,24 @@
+name: sportsvision
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pytorch::pytorch>=2.2.0
+  - pytorch::torchvision>=0.17.0
+  - pytorch::torchaudio>=2.2.0
+  - pytorch::pytorch-cuda=12.1
+  - numpy>=1.24.0
+  - pandas>=2.0.0
+  - scipy>=1.10.0
+  - scikit-learn>=1.3.0
+  - pyyaml>=6.0
+  - tqdm>=4.65.0
+  - matplotlib>=3.7.0
+  - seaborn>=0.12.0
+  - pip
+  - pip:
+    - wandb>=0.16.0
